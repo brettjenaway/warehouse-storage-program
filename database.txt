@@ -1,0 +1,4 @@
+Chain Saw,12,22,1 Apr 2021,4 Apr 2021,Package is damaged. Handle with extra care
+Lawn Mower,60,14,20 Dec 2020,,Heavy. Must use a forklift
+Wheelbarrow,15,6,2 Mar 2024,,
+Circular Saw,5,10,1 May 2026,3 May 2026,User must provide new blade

@@ -119,14 +119,14 @@ int main()
         cout << endl;
         cout << "Welcome to UniSQWareHouse Inventory Management System" << endl;
         cout << endl;
-        cout << "Please choose an option from the following selection:" << endl;
+        cout << "Choose an option:" << endl;
         cout << "1. Add item to database" << endl;
         cout << "2. Remove item from database" << endl;
         cout << "3. Search database for item" << endl;
         cout << "4. View database" << endl;
         cout << "5. Exit" << endl
              << endl;
-        cout << "Your selection: ";
+        cout << "Your selection (1-5): ";
         cin >> userInput;
         cin.ignore(10000, '\n');
 
@@ -153,7 +153,10 @@ int main()
             flag = true;
             return 0;
         default:
-            cout << "Incorrect selection. Please choose again." << endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Invalid input. Please enter a number from 1-5." << endl;
+            continue;
         }
         cout << endl;
     }
@@ -201,6 +204,9 @@ void addInventoryItem()
     cout << newItem.itemName << " successfully added to inventory" << endl;
 }
 
+// This function searches the inventory for a matching item name
+// Parameters: none
+// Returns: Bool - true if exact match found, false otherwise
 bool searchInventory()
 {
     bool searching = true;
@@ -274,7 +280,7 @@ void displayDatabase()
     {
         displayItem(*iterator);
     }
-    cout << "Enter any character to return to the main menu";
+    cout << "Enter any character to return to the main menu: ";
     char ch;
     cin >> ch;
     cin.ignore(10000, '\n');
@@ -287,6 +293,9 @@ void deleteItem(vector<InventoryItem> &inventory, int indexNumber)
     cout << "Item successfully deleted from inventory." << endl;
 }
 
+// This function opens a data file in CSV format and imports it into the database vector
+// Parameters: string fileName - the name of the file to open
+// Returns: none
 void openFile(string fileName)
 {
     // fstream dataFile(fileName, ios::out);
@@ -321,6 +330,9 @@ void openFile(string fileName)
     dataFile.close();
 }
 
+// This function saves the database vector to a data file in CSV format
+// Parameters: string fileName - the name of the file to save
+// Returns: none
 void saveFile(string fileName)
 {
     // Open file
